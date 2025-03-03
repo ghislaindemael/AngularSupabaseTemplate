@@ -1,0 +1,102 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@import "css";
+
+@theme {
+    --breakpoint-msm: 690px;
+    --leading-tiny: 1.1;
+}
+
+@layer components {
+    .hide-scrollbar {
+        scrollbar-width: none;
+        scrollbar-color: transparent transparent;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+html,
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+.page-container {
+    @apply max-msm:pt-0 flex size-full flex-col items-center p-3 pt-2;
+}
+
+h1,
+h2 {
+    font-weight: 600;
+    text-align: center;
+}
+
+.md-title {
+    @apply max-msm:leading-tiny max-msm:text-3xl text-4xl;
+    @apply mb-3 max-sm:mb-2;
+}
+
+.md-title-no-mb {
+    @apply max-msm:leading-tiny max-msm:text-3xl text-4xl;
+}
+
+.lg-title {
+    @apply max-msm:leading-tiny text-8xl max-md:text-6xl;
+    @apply mb-3 max-sm:mb-0;
+}
+
+.libre-franklin {
+    font-family: "Libre Franklin", sans-serif;
+}
+
+app-header {
+    --header-height: 0px;
+    height: auto;
+}
+
+.main-content {
+    margin-top: var(--header-height);
+}
+
+.custom-dialog-container,
+.cdk-global-overlay-wrapper {
+    z-index: 999999;
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    border-radius: 0.75rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* The Holy Line */
+.mat-mdc-dialog-surface {
+    background: transparent !important;
+    border-radius: 12px !important;
+}
+
+.dialog-backdrop {
+    z-index: 9995;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+a:focus {
+    outline: transparent;
+}
+
+.bd-default {
+    @apply border-2 border-gray-300;
+}
+
+.bd-hover-black {
+    @apply hover:border-black;
+}

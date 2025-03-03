@@ -1,0 +1,33 @@
+<div
+    class="bg-gray-80 bg-opacity-50 flex w-full min-w-1 items-center gap-3 rounded-md border-2 border-red-800 p-4"
+>
+    <div class="flex w-full flex-col items-start text-red-900">
+        <h3 class="w-fit text-base font-semibold">Déconnexion</h3>
+        <p class="w-fit text-sm font-light text-pretty">
+            Interrompre la session active. Vous devrez vous reconnecter.
+        </p>
+    </div>
+    <div class="flex w-fit items-center">
+        <button
+            type="button"
+            (click)="onSignOut()"
+            class="inline-flex items-center gap-x-1.5 rounded-md bg-red-900 px-3 py-2.5 font-semibold whitespace-nowrap text-white shadow-sm transition-all hover:bg-red-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-900 active:scale-95"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="mr-1 size-6"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75"
+                />
+            </svg>
+            Déconnexion
+        </button>
+    </div>
+</div>

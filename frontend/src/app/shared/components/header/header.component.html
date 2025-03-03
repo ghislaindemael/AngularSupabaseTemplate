@@ -1,0 +1,118 @@
+<div
+    class="fixed top-0 z-[9999] flex w-full flex-col items-center gap-2 border-b-2 border-black bg-white pl-1"
+    (mouseleave)="onMouseLeave($event)"
+    (contextmenu)="onRightClick($event)"
+>
+    <div
+        class="max-msm:flex-col flex h-full w-full max-w-[1800px] place-content-between items-center p-3"
+        [ngClass]="{'pb-0': shownMenu != ''}"
+    >
+        <div
+            class="flex h-fit w-full flex-row place-content-between items-center"
+            (mouseenter)="shownMenu = ''"
+        >
+            <a
+                class="font-garamond text-5xl whitespace-nowrap max-md:text-4xl max-md:font-semibold"
+                (mouseenter)="onHrefButtonEnter('')"
+                href="/home"
+            >
+                Text Logo
+            </a>
+            <div
+                *ngIf="isSmallScreen"
+                class="max-h-9 cursor-pointer rounded-md border-2 p-1 hover:bg-gray-200"
+                (click)="toggleDropdown()"
+            >
+                <ng-icon
+                    name="heroBars3"
+                ></ng-icon>
+            </div>
+        </div>
+        <div
+            class="max-msm:flex-wrap max-msm:justify-center flex h-full flex-row items-center gap-2 max-lg:gap-1"
+            [ngClass]="{'hidden': (isSmallScreen && !showDropdownMenu)}"
+        >
+            <a
+                (mouseenter)="onHrefButtonEnter('menu1')"
+                (click)="shownMenu = ''"
+                href="/link1"
+                class="bd-default flex items-center gap-1 rounded-md bg-gray-50 p-2 py-1  whitespace-nowrap"
+                [ngClass]="{'!border-black': shownMenu == 'menu1'}"
+            >
+                Menu 1
+            </a>
+
+            <a
+                (mouseenter)="onHrefButtonEnter('menu2')"
+                (click)="shownMenu = ''"
+                href="/link2"
+                class="bd-default flex items-center gap-1 rounded-md bg-gray-50 p-2 py-1  whitespace-nowrap"
+                [ngClass]="{'!border-black': shownMenu == 'menu2'}"
+            >
+                Menu 2
+            </a>
+
+            <a
+                *ngIf="user"
+                href="auth/profile"
+                (mouseenter)="onHrefButtonEnter('')"
+                class="bd-default bd-hover-black flex w-fit rounded-md bg-gray-50 hover:border-black"
+            >
+                <div
+                    class="flex w-full items-center justify-center gap-1 p-2 py-1"
+                >
+                    <ng-icon name="heroUser"></ng-icon>
+                    <div class="whitespace-nowrap">My account</div>
+                </div>
+            </a>
+
+            <a
+                *ngIf="!user"
+                (mouseenter)="onHrefButtonEnter('')"
+                href="auth/login"
+                class="bd-default bd-hover-black flex w-fit items-center gap-1 rounded-md bg-gray-50"
+            >
+                <div
+                    class="flex w-full justify-center gap-1 p-2 py-1 whitespace-nowrap"
+                >
+                    <ng-icon name="heroUserPlus" class="size-6"></ng-icon>
+                    <div>Login / Sign up</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div
+        class="bg-gray-80 flex w-full max-w-[1800px] justify-center p-3"
+        [class.hidden]="shownMenu == ''"
+    >
+        <div
+            *ngIf="shownMenu == 'menu1'"
+            class="max-msm:justify-center flex flex-wrap gap-2"
+        >
+            <a
+                href="/link1A"
+                class="bd-default flex w-fit items-center justify-center gap-1 rounded-md bg-white p-2 py-1 hover:border-black"
+            >
+                Link 1A
+            </a>
+        </div>
+        <div *ngIf="shownMenu == 'menu2'" class="flex flex-col gap-2">
+            <div class="flex items-center gap-1">
+                <div class="flex flex-wrap gap-2">
+                    <a
+                        href="/link1A"
+                        class="bd-default flex w-fit items-center justify-center gap-1 rounded-md bg-white p-2 py-1 hover:border-black"
+                    >
+                        Link 2A </a
+                    ><a
+                    href="/link1A"
+                    class="bd-default flex w-fit items-center justify-center gap-1 rounded-md bg-white p-2 py-1 hover:border-black"
+                >
+                    Link 2B
+                </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
