@@ -11,9 +11,7 @@
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "lint": "ng lint",
-        "install:backend": "cd server && npm install",
-        "deploy:staging": "npm run build:staging && cp -r dist/your-project-name-staging/* /var/www/staging.project.fr",
-        "deploy:production": "npm run build:production && cp -r dist/your-project-name/* /var/www/project.fr"
+        "install:backend": "cd server && npm install"
     },
     "private": true,
     "dependencies": {
